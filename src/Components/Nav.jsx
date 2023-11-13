@@ -11,12 +11,12 @@ const Nav = () =>{
                 <div className="flex items-center ">
                     <img src={logo} alt="logo" width={100} className="bg-transparent"/>
                 </div>
-                <ul className="flex justify-end gap-12 w-full">
+                <ul className="flex justify-end gap-12 w-full ">
                     <li className="flex gap-3 items-center hover:text-orange-500"><BsSearch/>search</li>
-                    <li className="flex gap-3 items-center"><BiSolidOffer/>Offer</li>
-                    <li className="flex gap-3 items-center"><IoHelpBuoyOutline/>Help</li>
-                    <li className="flex gap-3 items-center"><SlUserFollow/>Sign In</li>
-                    <li className="flex gap-3 items-center"><AiOutlineShoppingCart/>Cart</li>
+                    <li className="flex gap-3 items-center hover:text-orange-500"><BiSolidOffer/>Offer</li>
+                    <li className="flex gap-3 items-center hover:text-orange-500"><IoHelpBuoyOutline/>Help</li>
+                    <li className="flex gap-3 items-center hover:text-orange-500"><SlUserFollow/>Sign In</li>
+                    <li className="flex gap-3 items-center hover:text-orange-500"><AiOutlineShoppingCart/>Cart</li>
                 </ul>
             </div> 
         </div>
