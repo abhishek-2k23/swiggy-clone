@@ -27,7 +27,7 @@ const SingleRestaurant = () => {
     );
   }
   return (
-    <div className="w-full flex justify-center ">
+    <div className="w-full flex flex-col items-center ">
       {/* {/* {console.log(RestaurantData)} */}
       {console.log(RestaurantData?.cards[0]?.card?.card?.info)}
       <div className="w-9/12 flex justify-between px-5 pb-5 mb-3 border-b border-dotted border-gray-400">
@@ -63,13 +63,13 @@ const SingleRestaurant = () => {
         </div>
       </div>
 
-      {/* <div>
+      <div className="w-full flex flex-col justify-center">
         {RestaurantData?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map(
           (restaurant, index) => (
             <SingleRestaurantCard key={index} restaurant={restaurant} />
           )
         )}
-      </div> */}
+      </div>
     </div>
   );
 };
