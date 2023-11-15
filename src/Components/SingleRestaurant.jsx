@@ -28,8 +28,7 @@ const SingleRestaurant = () => {
   }
   return (
     <div className="w-full flex flex-col items-center ">
-      {/* {/* {console.log(RestaurantData)} */}
-      {console.log(RestaurantData?.cards[0]?.card?.card?.info)}
+      {console.log(RestaurantData)}
       <div className="w-9/12 flex justify-between px-5 pb-5 mb-3 border-b border-dotted border-gray-400">
         <div className="">
           <p className="font-bold text-xl mb-2">{RestaurantData?.cards[0]?.card?.card?.info?.name}</p>
