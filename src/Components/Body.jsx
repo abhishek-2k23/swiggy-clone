@@ -13,11 +13,11 @@ const Body = () =>{
 
     //api calling function
     async function getRestaurants(){
-        const res = await fetch(API);
+        const res = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=25.5940499&lng=85.1376051");
         const data = await res.json();
         console.log("data : ",data);
         setRestaurantData(data?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
-        console.log("Restaurants : ",restaurantData)
+       
     }
     if(!restaurantData){
         return <div className="w-full flex  justify-center">
@@ -34,7 +34,7 @@ const Body = () =>{
                 {restaurantData?.map((restaurant) => {
                     return <RestaurentCard key={restaurant?.info?.id} restaurant = {restaurant?.info}/>
                 }) }
-                {/* {console.log(restaurantData)} */}
+                {console.log(restaurantData)}
                 </div>
             </div>
         </div>

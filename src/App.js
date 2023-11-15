@@ -1,7 +1,9 @@
-import Nav from "./Components/Nav.jsx"
-import Body from "./Components/Body.jsx"
-import Footer from "./Components/Footer.jsx"
-import { Outlet, createBrowserRouter } from "react-router-dom"
+import Nav from "./Components/Nav.jsx";
+import Body from "./Components/Body.jsx";
+import Footer from "./Components/Footer.jsx";
+import SingleRestaurant from "./Components/SingleRestaurant.jsx";
+import Offer from "./pages/Offer.jsx";
+import { Outlet, createBrowserRouter } from "react-router-dom";
 
 export const approuter = createBrowserRouter([
   {
@@ -11,6 +13,14 @@ export const approuter = createBrowserRouter([
       {
         path : "/",
         element : <Body/>
+      },
+      {
+        path : "/restaurant/:id",
+        element : <SingleRestaurant/>
+      },
+      {
+        path : "/offer",
+        element : <Offer/>
       }
     ]
   }
