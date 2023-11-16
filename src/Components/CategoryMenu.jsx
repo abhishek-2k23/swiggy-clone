@@ -4,9 +4,9 @@ import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa6";
 import { IoIosArrowUp } from "react-icons/io";
 function CategoryMenu({ menu }) {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   return (
-    <div>
+    <div className="mt-5">
       {menu?.title && (
           <div
             className="flex justify-between mt-3 border-b pb-3"

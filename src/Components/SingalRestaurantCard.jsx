@@ -5,7 +5,7 @@ import CategoryMenu from "./CategoryMenu.jsx";
 import { FaAngleDown } from "react-icons/fa6";
 import { IoIosArrowUp } from "react-icons/io";
 const SingleRestaurantCard = ({ restaurant }) => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   return (
     <div className="h-auto  flex justify-center">
       <div className="w-9/12 pb-5 border-b-8 px-5">
@@ -36,8 +36,8 @@ const SingleRestaurantCard = ({ restaurant }) => {
                 </p>
               </div>
             </div>
-            <div>
-              <div>{!show ? <FaAngleDown /> : <IoIosArrowUp />}</div>
+            <div>{!restaurant?.card?.card?.categories &&
+              <div>{!show ? <FaAngleDown /> : <IoIosArrowUp />}</div>}
             </div>
           </div>
         )}
@@ -51,7 +51,7 @@ const SingleRestaurantCard = ({ restaurant }) => {
           ) : (
             <div>
               {" "}
-              {show &&
+              {(restaurant?.card?.card?.categories) &&
                 restaurant?.card?.card?.categories.map(( menu) => (
                   <CategoryMenu menu={menu} />
                 ))}
