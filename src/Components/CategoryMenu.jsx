@@ -1,21 +1,39 @@
 import React from "react";
 import MenuCard from "./MenuCard";
 import { useState } from "react";
+import { FaAngleDown } from "react-icons/fa6";
+import { IoIosArrowUp } from "react-icons/io";
 function CategoryMenu({ menu }) {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   return (
     <div>
-      <p
-        className="text-lg text-purple-700 font-bold"
-        onClick={() => {
-          show ? setShow(false) : setShow(true);
-        }}
-      >
-        {menu?.title}{" "}
-      </p>
+      {menu?.title && (
+          <div
+            className="flex justify-between mt-3 border-b pb-3"
+            onClick={() => {
+              show ? setShow(false) : setShow(true);
+            }}
+          >
+            <div>
+              <div>
+                <p className="text-base">
+                  {menu?.title}{" "}
+                  {menu?.itemCards?.length > 0 && (
+                    <span>
+                      {"(" + menu?.itemCards?.length + ")"}
+                    </span>
+                  )}
+                </p>
+              </div>
+            </div>
+            <div>
+              <div>{!show ? <FaAngleDown /> : <IoIosArrowUp />}</div>
+            </div>
+          </div>
+        )}
       {show &&
         menu?.itemCards?.map((menu, index) => (
-          <MenuCard key={index} menu={menu} />
+          <MenuCard key={menu?.card?.info?.id} menu={menu} />
         ))}
     </div>
   );
