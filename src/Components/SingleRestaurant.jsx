@@ -7,11 +7,9 @@ import ShimmerUi from "./ShimmerUI";
 const SingleRestaurant = () => {
   const { id } = useParams();
   const [RestaurantData, setRestaurantData] = useState(null);
-
   useEffect(() => {
     getRestaurantData();
   }, []);
-
   async function getRestaurantData() {
     const res = await fetch(`${SingleRestaurantAPI}${id}`);
     const json = await res?.json();
@@ -49,7 +47,6 @@ const SingleRestaurant = () => {
             </p>
           </div>
         </div>
-
         <div>
           <div className="w-[4.5rem] h-[4.7rem] flex flex-col items-center border border-gray-400 rounded-lg gap-2">
                 <div className="flex justify-center items-center gap-1 text-lg font-bold text-green-500 ">
@@ -61,7 +58,6 @@ const SingleRestaurant = () => {
           </div>
         </div>
       </div>
-
       <div className="w-full flex flex-col justify-center">
         {RestaurantData?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map(
           (restaurant, index) => (
