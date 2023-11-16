@@ -18,19 +18,19 @@ const MenuCard = ({ menu }) => {
           </span>
           {menu?.card?.info?.isBestseller && <span className="flex gap-2 items-center text-base text-orange-500">
             <IoStar/>
-            <p>Bestseller</p>
+            <p className="cursor-text">Bestseller</p>
           </span>}
                 
         </div>
         
 
-        <p className="text-base">{menu?.card?.info?.name} </p>
+        <p className="text-base cursor-text">{menu?.card?.info?.name} </p>
 
-        <p className="flex justify-start items-center text-base">
+        <p className="flex justify-start items-center text-base cursor-text">
           <MdOutlineCurrencyRupee />
           {menu?.card?.info?.price?.toString().slice(0, -2)}
         </p>
-        <p className="text-gray-400 font-semibold text-sm w-11/12">
+        <p className="text-gray-400 font-semibold text-sm w-11/12 cursor-text">
           {menu?.card?.info?.description}
         </p>
       </div>

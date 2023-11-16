@@ -8,7 +8,7 @@ const SingleRestaurantCard = ({ restaurant }) => {
   const [show, setShow] = useState(false);
   return (
     <div className="h-auto  flex justify-center">
-      <div className="w-9/12 pb-5 border-b-4 px-5">
+      <div className="w-9/12 pb-5 border-b-8 px-5">
         {restaurant?.card?.card?.isPureVeg && (
           <div className="text-lg font-semibold flex items-center gap-2">
             <PiPlantFill className="text-green-600" /> Pure Veg{" "}
@@ -19,7 +19,7 @@ const SingleRestaurantCard = ({ restaurant }) => {
         {/* Title bar with hide and show */}
         {restaurant?.card?.card?.title && (
           <div
-            className="flex justify-between mt-3"
+            className="flex justify-between my-3 cursor-pointer"
             onClick={() => {
               show ? setShow(false) : setShow(true);
             }}
