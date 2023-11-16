@@ -9,13 +9,19 @@ const SingleRestaurant = () => {
   const [RestaurantData, setRestaurantData] = useState(null);
   useEffect(() => {
     getRestaurantData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   async function getRestaurantData() {
-    const res = await fetch(`${SingleRestaurantAPI}${id}`);
-    const json = await res?.json();
-    // console.log("Json : ",json)
-    setRestaurantData(json?.data);
-    // [1].card.card.itemCards
+    try{
+      const res = await fetch(`${SingleRestaurantAPI}${id}`);
+      const json = await res?.json();
+      // console.log("Json : ",json)
+      setRestaurantData(json?.data);
+      // [1].card.card.itemCards
+
+    }catch(err){
+      console.log("Error : ",err);
+    }
   }
   if (!RestaurantData) {
     return (
