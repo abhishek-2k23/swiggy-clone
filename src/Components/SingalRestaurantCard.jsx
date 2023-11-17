@@ -53,7 +53,7 @@ const SingleRestaurantCard = ({ restaurant }) => {
               {" "}
               {(restaurant?.card?.card?.categories) &&
                 restaurant?.card?.card?.categories.map(( menu) => (
-                  <CategoryMenu menu={menu} />
+                  <CategoryMenu key={menu?.title} menu={menu} />
                 ))}
             </div>
           )}

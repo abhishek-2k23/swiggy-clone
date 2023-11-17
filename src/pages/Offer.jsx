@@ -2,7 +2,9 @@ import React from 'react'
 
 function Offer() {
   return (
-    <div>Offer</div>
+    <div className='h-52 flex justify-center items-center'>
+      offer
+    </div>
   )
 }
 
