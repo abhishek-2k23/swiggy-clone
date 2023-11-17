@@ -13,17 +13,21 @@ const Body = () =>{
 
     //api calling function
     async function getRestaurants(){
-        const res = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=25.5940499&lng=85.1376051");
+        const res = await fetch(API);
         const data = await res.json();
         console.log("data : ",data);
         setRestaurantData(data?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
        
     }
+
+    //till restaurantData loades show shimmer UI
     if(!restaurantData){
         return <div className="w-full flex  justify-center">
                 <ShimmerUi/>
         </div>
     }
+
+    //if restaurant data available then render it
     return (
         <div className="w-full flex  justify-center">
             
