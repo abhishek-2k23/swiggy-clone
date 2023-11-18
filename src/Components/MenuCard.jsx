@@ -2,7 +2,6 @@ import { PiSquareLogoFill } from "react-icons/pi";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
 import { MenuImgUrl } from "../constant";
 import { IoStar } from "react-icons/io5";
-
 const MenuCard = ({ menu }) => {
   return (
     <div className="text-lg font-semibold flex justify-between items-center gap-1 pt-5 pb-10 border-b">
@@ -39,25 +38,33 @@ const MenuCard = ({ menu }) => {
           <div className="relative">
             <div className="w-[118px] h-[96px] rounded-md">
               <img
-                src={MenuImgUrl + menu?.card.info.imageId}
+                src={MenuImgUrl + menu?.card?.info?.imageId}
                 alt=""
-                className="w-full h-full rounded-md"
-              />
+                className="w-full h-full rounded-md"/>
 
-              <p className="absolute -bottom-3  px-8 py-2 left-3 text-sm rounded-md bg-white border border-gray-300 drop-shadow-sm hover:drop-shadow-lg text-green-500 cursor-pointer tracking-wider">
-                ADD
-              </p>
+                <AddButton info={menu?.card?.info}/>
             </div>
           </div>
         ) : (
-          <div className="w-28 h-10 border border-gray-400 hover:drop-shadow-md drop-shadow-sm text-center rounded-md flex justify-center items-center">
-            <p className="text-green-500 text-center align-middle font-semibold text-lg tracking-wide cursor-pointer">
-              ADD
-            </p>
-          </div>
+            <AddButton info={menu?.card?.info}/>
         )}
       </div>
     </div>
   );
 };
+
+const AddButton = ({info}) => {
+
+  function handleAdd(info){
+    console.log("added - ", info)
+  }
+  return (
+    <div className={`${info.imageId && "absolute -bottom-2 left-2 bg-white"}  w-24 h-9 border border-gray-400 hover:drop-shadow-md drop-shadow-sm text-center rounded-md flex justify-center items-center`} onClick={() => handleAdd(info)}>
+            <p className="text-green-500 text-center align-middle font-semibold text-lg tracking-wide cursor-pointer" >
+              ADD
+            </p>
+      </div>
+  )
+}
+
 export default MenuCard;
