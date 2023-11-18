@@ -20,24 +20,9 @@ const InstaMart = () => {
   const [isVisible, setIsVisible] = useState("About");
   return (
     <div>
-      <Section
-        title={"About"}
-        desc={"description of about"}
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
-      ></Section>
-      <Section
-        title={"Team"}
-        desc={"description of Team"}
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
-      ></Section>
-      <Section
-        title={"Carrers"}
-        desc={"description of Carrers"}
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
-      ></Section>
+      <Section title={"About"} desc={"description of about"} isVisible={isVisible} setIsVisible={setIsVisible}></Section>
+      <Section title={"Team"} desc={"description of Team"} isVisible={isVisible} setIsVisible={setIsVisible}></Section>
+      <Section title={"Carrers"}desc={"description of Carrers"} isVisible={isVisible}setIsVisible={setIsVisible}></Section>
     </div>
   );
 };
