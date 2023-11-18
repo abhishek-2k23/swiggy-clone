@@ -2,7 +2,14 @@ import { PiSquareLogoFill } from "react-icons/pi";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
 import { MenuImgUrl } from "../constant";
 import { IoStar } from "react-icons/io5";
+import { useDispatch } from "react-redux";
+import { addItem } from "../Store/Slices/cartSlice";
 const MenuCard = ({ menu }) => {
+
+  //despatch 
+  const dispatch = useDispatch();
+
+  
   return (
     <div className="text-lg font-semibold flex justify-between items-center gap-1 pt-5 pb-10 border-b">
       <div className="flex flex-col gap-2">
@@ -54,9 +61,11 @@ const MenuCard = ({ menu }) => {
 };
 
 const AddButton = ({info}) => {
+  const dispatch = useDispatch();
 
   function handleAdd(info){
     console.log("added - ", info)
+    dispatch(addItem(info));
   }
   return (
     <div className={`${info.imageId && "absolute -bottom-2 left-2 bg-white"}  w-24 h-9 border border-gray-400 hover:drop-shadow-md drop-shadow-sm text-center rounded-md flex justify-center items-center`} onClick={() => handleAdd(info)}>
