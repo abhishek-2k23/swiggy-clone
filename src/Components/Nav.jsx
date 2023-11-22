@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import logo from "../assets/logo.png";
 import { BsSearch } from "react-icons/bs";
 import { BiSolidOffer } from "react-icons/bi";
@@ -6,9 +7,13 @@ import { IoHelpBuoyOutline } from "react-icons/io5";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+
 const Nav = () => {
   const navigate = useNavigate();
   const [activeElement, setActiveElement] = useState("");
+
+  const items = useSelector((store) => store.cart.items);
   return (
     <div className="w-full flex   justify-center">
       <div className="w-9/12 flex justify-between items-center  px-5 text-gray-700 font-semibold capitalize shadow-lg">
@@ -80,10 +85,10 @@ const Nav = () => {
             className={`flex gap-3 items-center hover:text-orange-500 ${
               activeElement === "Cart" && "text-orange-400 underline underline-offset-2"
             }`}
-            onClick={() => setActiveElement("Cart")}
+            onClick={() => {navigate("/cart");setActiveElement("Cart")}}
           >
             <AiOutlineShoppingCart />
-            Cart
+            Cart - {items?.length}
           </li>
         </ul>
       </div>
