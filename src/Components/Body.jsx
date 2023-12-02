@@ -16,7 +16,7 @@ const Body = () =>{
         const res = await fetch(API);
         const data = await res.json();
         console.log("data : ",data);
-        setRestaurantData(data?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
+        setRestaurantData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
        
     }
 
@@ -35,6 +35,9 @@ const Body = () =>{
                 <h1 className="font-bold text-lg">Restaurants : </h1>
                 
                 <div className="flex gap-1 w-full h-auto flex-wrap justify-evenly ">
+                    {
+                        console.log("REs ",restaurantData)
+                    }
                 {restaurantData?.map((restaurant) => {
                     return <RestaurentCard key={restaurant?.info?.id} restaurant = {restaurant?.info}/>
                 }) }

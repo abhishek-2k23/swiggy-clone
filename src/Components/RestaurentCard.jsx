@@ -3,13 +3,14 @@ import { MdStars } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 const RestaurentCard = (props) =>{
     const {restaurant} = props;
+    console.log("restaurant : ",restaurant);
     const navigate = useNavigate();
     return ( 
         <div className="m-2 w-[249px] h-[269px] hover:scale-95 transition-all duration-50" onClick={() => navigate(`/restaurant/${restaurant?.id}`)}>
             <div className=" rounded-md w-[249px] h-[166px] relative shadow-inner">
                 <img src={ImgUrl + restaurant?.cloudinaryImageId} alt='backgroundImage' className="w-[249px] h-[166px] rounded-lg"/>
                 <div className="absolute h-14 w-full bg-gradient-to-t from-black bottom-0 rounded-b-md "> 
-                    <p className="absolute text-white font-extrabold bottom-2 text-xl left-1">{`${restaurant?.aggregatedDiscountInfoV3.header} ${restaurant?.aggregatedDiscountInfoV3.subHeader}`}</p>
+                    <p className="absolute text-white font-extrabold bottom-2 text-xl left-1">{`${restaurant?.aggregatedDiscountInfoV3?.header} ${restaurant?.aggregatedDiscountInfoV3?.subHeader}`}</p>
                 </div>
             </div>
             <div className="flex flex-col justify-start text-gray-800">
