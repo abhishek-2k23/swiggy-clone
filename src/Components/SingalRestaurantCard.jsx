@@ -4,7 +4,8 @@ import MenuCard from "./MenuCard.jsx";
 import CategoryMenu from "./CategoryMenu.jsx";
 import { FaAngleDown } from "react-icons/fa6";
 import { IoIosArrowUp } from "react-icons/io";
-const SingleRestaurantCard = ({ restaurant }) => {
+import Crousel from "./Crousel.jsx";
+const   SingleRestaurantCard = ({ restaurant }) => {
   const [show, setShow] = useState(true);
   return (
     <div className="h-auto  flex justify-center">
@@ -15,6 +16,17 @@ const SingleRestaurantCard = ({ restaurant }) => {
           </div>
         )}
 
+        {
+          restaurant?.card?.card?.title && (
+            <div className="flex gap-10 overflow-clip">
+              {
+                restaurant?.card?.card?.carousel?.map((crausel) => (
+                  <Crousel crousels={crausel}/>
+                )) 
+              }
+            </div>
+          )
+        }
         
         {/* Title bar with hide and show */}
         {restaurant?.card?.card?.title && (
@@ -24,8 +36,12 @@ const SingleRestaurantCard = ({ restaurant }) => {
               show ? setShow(false) : setShow(true);
             }}
           >
+
+            {/* for carousel */}
+            
+
+            {/* for menu cards category or direct menu show */}
             <div>
-              <div>
                 <p className="font-bold text-base">
                   {restaurant?.card?.card?.title}{" "}
                   {restaurant?.card?.card?.itemCards?.length > 0 && (
@@ -34,7 +50,6 @@ const SingleRestaurantCard = ({ restaurant }) => {
                     </span>
                   )}
                 </p>
-              </div>
             </div>
             <div>{!restaurant?.card?.card?.categories &&
               <div>{!show ? <FaAngleDown /> : <IoIosArrowUp />}</div>}
