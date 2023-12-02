@@ -65,7 +65,10 @@ const SingleRestaurant = () => {
         </div>
       </div>
       <div className="w-full flex flex-col justify-center">
-        {RestaurantData?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map(
+        {
+          console.log(RestaurantData?.cards.length)
+        }
+        {RestaurantData?.cards[RestaurantData?.cards.length-1]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map(
           (restaurant, index) => (
             <SingleRestaurantCard key={index} restaurant={restaurant} />
           )
