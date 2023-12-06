@@ -14,7 +14,7 @@ const AddRemoveButton = ({item}) =>{
     }
 
     return (
-        <div className="flex w-24 h-10 border-gray-500 shadow-md justify-evenly items-center text-green-600 text-lg">
+        <div className="flex w-24 h-10 border-gray-500 shadow-md justify-evenly items-center text-green-600 text-lg bg-white rounded-lg">
             <div onClick={remove} className="cursor-pointer">
                 -
             </div>

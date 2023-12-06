@@ -5,10 +5,13 @@ import CategoryMenu from "./CategoryMenu.jsx";
 import { FaAngleDown } from "react-icons/fa6";
 import { IoIosArrowUp } from "react-icons/io";
 import Crousel from "./Crousel.jsx";
+import CraouselButton from "./CraouselButton.jsx";
 const   SingleRestaurantCard = ({ restaurant }) => {
   const [show, setShow] = useState(true);
   return (
     <div className="h-auto  flex justify-center">
+
+      {/* veg - nonveg */}
       <div className="w-9/12 pb-5 border-b-8 px-5">
         {restaurant?.card?.card?.isPureVeg && (
           <div className="text-lg font-semibold flex items-center gap-2">
@@ -16,6 +19,7 @@ const   SingleRestaurantCard = ({ restaurant }) => {
           </div>
         )}
 
+          {/* Show craousel  */}
         {
           restaurant?.card?.card?.title && (
             <div className="flex gap-10 overflow-clip">
@@ -26,6 +30,10 @@ const   SingleRestaurantCard = ({ restaurant }) => {
               }
             </div>
           )
+        }
+
+        {
+          restaurant?.card?.card?.carousel && <CraouselButton length={restaurant?.card?.card?.carousel.length}></CraouselButton>
         }
         
         {/* Title bar with hide and show */}

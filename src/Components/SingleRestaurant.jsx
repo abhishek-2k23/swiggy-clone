@@ -31,7 +31,7 @@ const SingleRestaurant = () => {
     );
   }
   return (
-    <div className="w-full flex flex-col items-center ">
+    <div className="w-full flex flex-col items-center mt-5">
       {console.log(RestaurantData)}
       <div className="w-9/12 flex justify-between px-5 pb-5 mb-3 border-b border-dotted border-gray-400">
         <div className="">
