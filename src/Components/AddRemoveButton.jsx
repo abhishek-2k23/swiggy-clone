@@ -1,9 +1,10 @@
-
 import { addItem,removeItem } from "../Store/Slices/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const AddRemoveButton = ({item}) =>{
-    //dispact 
+    const cartItem = useSelector(store => store.cart.items);
+    const idx = cartItem.findIndex(cartitem => cartitem.id === item.id);
+    //dispatch
     const dispatch = useDispatch();
     const remove = () =>{
         console.log("Removed : ",item?.id)
@@ -18,7 +19,7 @@ const AddRemoveButton = ({item}) =>{
             <div onClick={remove} className="cursor-pointer">
                 -
             </div>
-            <div>{0}</div>
+            <div>{cartItem[idx].NoOfItems}</div>
             <div onClick={() => add() } className="cursor-pointer">+</div>
         </div>
     )
