@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../Store/Slices/cartSlice";
 
 const MenuCard = ({ menu }) => {
+  // console.log("Menu : ", menu);
   return (
     <div className="text-lg font-semibold flex justify-between items-center gap-1 pt-5 pb-10 border-b">
       <div className="flex flex-col gap-2">
@@ -28,8 +29,13 @@ const MenuCard = ({ menu }) => {
         <p className="text-base cursor-text">{menu?.card?.info?.name} </p>
 
         <p className="flex justify-start items-center text-base cursor-text">
-          <MdOutlineCurrencyRupee />
-          {menu?.card?.info?.price?.toString().slice(0, -2)}
+          {menu?.card?.info?.price ? (
+            <p>
+
+            <MdOutlineCurrencyRupee />
+            {menu?.card?.info?.price?.toString().slice(0, -2)}
+            </p>
+  ):(<p>---</p>)}
         </p>
         <p className="text-gray-400 font-semibold text-sm w-11/12 cursor-text">
           {menu?.card?.info?.description}
@@ -53,23 +59,31 @@ const MenuCard = ({ menu }) => {
   );
 };
 
-const Button = ({ item }) => {
+export const Button = ({ item }) => {
+  // console.log(item);
   const cartItem = useSelector((store) => store.cart.items);
+  // console.log("ADDED : ", cartItem, typeof(cartItem));
+  const idx = cartItem.findIndex((Citem) => Citem.id === item.id);
 
+  item.NoOfItems = cartItem[idx]?.NoOfItems || 1;
   const dispatch = useDispatch();
 
   const AddItem = () => {
+    if(cartItem.includes(item)) {
+      cartItem.NoOfItems++;
+    }
     dispatch(addItem(item))
-    console.log("ADDED : ", cartItem, typeof(cartItem));
+    console.log("All item in cart : ", cartItem);
   };
-
+  
   const RemoveItem = () => {
+
     dispatch(removeItem(item?.id));
     console.log("RemoveItem : ",item?.id)
   };
   return (
     <>
-      {cartItem.includes(item) ? (
+      {idx !== -1 ? (
         <div
           className={`${
             item?.imageId && "absolute -bottom-3 left-2 bg-white text-green-500"
@@ -80,7 +94,7 @@ const Button = ({ item }) => {
             {" "}
             -{" "}
           </div>{" "}
-          <div> {cartItem?.length || 100} </div>{" "}
+          <div> {cartItem[idx].NoOfItems} </div>{" "}
           <div onClick={AddItem} className="mx-2">
             {" "}
             +{" "}
