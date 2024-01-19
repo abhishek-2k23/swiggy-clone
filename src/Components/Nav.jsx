@@ -16,7 +16,7 @@ const Nav = () => {
   const items = useSelector((store) => store.cart.items);
   return (
     <div className="w-full flex   justify-center">
-      <div className="w-9/12 flex justify-between items-center  px-5 text-gray-700 font-semibold capitalize shadow-lg">
+      <div className="w-9/12 flex justify-between items-center  px-5 text-gray-700 font-semibold capitalize">
         <div className="flex items-center ">
           <img
             src={logo}
