@@ -16,7 +16,7 @@ const Body = () =>{
         const res = await fetch(API);
         const data = await res.json();
         console.log("data : ",data);
-        setRestaurantData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setRestaurantData(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
        
     }
 
@@ -31,8 +31,8 @@ const Body = () =>{
     return (
         <div className="w-full flex  justify-center">
             
-            <div className="w-10/12 h-auto">
-                <h1 className="font-bold text-lg">Restaurants : </h1>
+            <div className="w-10/12 h-auto p-5">
+                {/* <h1 className="font-bold text-lg">Restaurants : </h1> */}
                 
                 <div className="flex gap-1 w-full h-auto flex-wrap justify-evenly ">
                     {
